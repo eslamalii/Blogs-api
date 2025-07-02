@@ -1,4 +1,8 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './../entities/user.entity';
 import { Repository } from 'typeorm';
@@ -55,7 +59,7 @@ export class AuthService {
 
     const isPasswordValid = await comparePassword(password, user.password);
     if (!isPasswordValid) {
-      throw new ConflictException('Invalid username or password');
+      throw new UnauthorizedException('Invalid username or password');
     }
 
     const payload = {
@@ -73,7 +77,7 @@ export class AuthService {
     };
   }
 
-  async validateUser(userId: number): Promise<Partial<User>> {
+  async validateUser(userId: number): Promise<User> {
     const user = await this.userRepo.findOne({ where: { id: userId } });
 
     if (!user) {
