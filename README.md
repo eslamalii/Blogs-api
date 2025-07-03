@@ -84,7 +84,7 @@ The API will be available at `http://localhost:3000`
 
 URL: https://documenter.getpostman.com/view/19860605/2sB34Zsjcp
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
