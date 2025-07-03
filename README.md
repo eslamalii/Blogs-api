@@ -25,7 +25,7 @@
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
+git clone git@github.com:eslamalii/Blogs-api.git
 cd blogs-api
 ```
 
